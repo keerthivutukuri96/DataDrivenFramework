@@ -11,9 +11,11 @@ public class LoginTest extends TestBase {
 	
 	@Test
 	public void loginAsBankManager() throws InterruptedException {
-		
+		 log.info("In login bank manager");
 		 driver.findElement(By.cssSelector(OR.getProperty("bmlBtn"))).click();
+		 log.debug("going to sleep");
 		 Thread.sleep(3000);
+		 log.debug("last message");
 	}
 	
 	

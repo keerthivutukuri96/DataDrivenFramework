@@ -3,12 +3,14 @@ package com.w2a.base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager; 
-import org.apache.logging.log4j.LogBuilder;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -34,14 +36,20 @@ public class TestBase {
 	public static Properties config = new Properties();
 	public static Properties OR = new Properties();
 	public static FileInputStream fis;
-	public static Logger log = LogManager.getLogger("devpinoyLogger");
-
+	
+	Date d = new Date();
+	public static Logger log = Logger.getLogger(TestBase.class.getName());
+	
+	
 	@BeforeSuite
 	public void setUp() {
+		System.setProperty("current.date",d.toString().replace(":","_").replace(" ","_"));
+		PropertyConfigurator.configure("./src/test/resources/properties/log4j.properties");
+		  
 
 		if (driver == null) {
 
-			// FileInputStream fis;
+			
 			try {
 				fis = new FileInputStream(
 						System.getProperty("user.dir") + "\\src\\test\\resources\\properties\\Config.properties");
@@ -51,6 +59,7 @@ public class TestBase {
 
 			try {
 				config.load(fis);
+				log.info("Config file loaded");
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
@@ -64,6 +73,8 @@ public class TestBase {
 			}
 			try {
 				OR.load(fis);
+				log.error("OR file loaded");
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -72,6 +83,8 @@ public class TestBase {
 				driver = new FirefoxDriver();
 			} else if (config.getProperty("browser").equals("chrome")) {
 				driver = new ChromeDriver();
+				log.debug("Chrome launched");
+
 			} else if (config.getProperty("browser").equals("ie")) {
 				driver = new InternetExplorerDriver();
 			}

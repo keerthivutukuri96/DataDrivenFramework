@@ -1,0 +1,6 @@
+INFO    2023-05-12 21:28:25,760 [main] com.w2a.base.TestBase  - Config file loaded
+ERROR   2023-05-12 21:28:25,762 [main] com.w2a.base.TestBase  - OR file loaded
+DEBUG   2023-05-12 21:28:28,919 [main] com.w2a.base.TestBase  - Chrome launched
+INFO    2023-05-12 21:28:30,085 [main] com.w2a.base.TestBase  - In login bank manager
+DEBUG   2023-05-12 21:28:30,248 [main] com.w2a.base.TestBase  - going to sleep
+DEBUG   2023-05-12 21:28:33,255 [main] com.w2a.base.TestBase  - last message
