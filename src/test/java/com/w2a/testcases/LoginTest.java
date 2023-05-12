@@ -13,7 +13,7 @@ public class LoginTest extends TestBase {
 	public void loginAsBankManager() throws InterruptedException {
 		
 		 driver.findElement(By.cssSelector(OR.getProperty("bmlBtn"))).click();
-		 Thread.sleep(30000);
+		 Thread.sleep(3000);
 	}
 	
 	
