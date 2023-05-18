@@ -1,0 +1,4 @@
+target/test-classes/logs
+src/test/resources/logs
+test-output
+target

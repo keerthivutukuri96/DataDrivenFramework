@@ -35,7 +35,12 @@
 			<artifactId>guice</artifactId>
 			<version>7.0.0-rc1</version>
 		</dependency>
-	
+		<!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
+	<!--	<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>7.0.0</version>
+		</dependency> -->
 		<!-- https://mvnrepository.com/artifact/jakarta.mail/jakarta.mail-api -->
 		<dependency>
 			<groupId>jakarta.mail</groupId>
@@ -91,7 +96,14 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
+		
 	</dependencies>
+<!--	
+	<properties>
+	     <maven.compiler.source>1.8</maven.compiler.source>
+	     <maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+-->	
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -99,6 +111,12 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>3.1.0</version>
+				<!--	<configuration>
+						 <testFailureIgnore>false</testFailureIgnore> 
+						<suiteXmlFiles>
+							<suiteXmlFile>src/test/resources/runner/testng.xml</suiteXmlFile>
+						</suiteXmlFiles> 
+					</configuration> -->
 				</plugin>
 			</plugins>
 		</pluginManagement>
